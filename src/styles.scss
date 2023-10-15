@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;900&display=swap");
+
+@import "./assets/scss/variable-override";
+@import "bootstrap/scss/bootstrap";
+
+* {
+    font-family: "Noto Sans", sans-serif;
+    font-family: "Noto Sans Arabic", sans-serif;
+}
