@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,7 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-  isSidebarOpen: boolean = true;
+  @ViewChild('sidebar') sidebar!: ElementRef;
+  isSidebarOpen = true;
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+    if (this.isSidebarOpen) {
+      this.sidebar.nativeElement.classList.add('open');
+    } else {
+      this.sidebar.nativeElement.classList.remove('open');
+    }
+  }
   menu = [
     {
       name: 'الرئيسية',
@@ -33,8 +42,4 @@ export class SidebarComponent {
       icon: 'fa-solid fa-desktop',
     },
   ];
-
-  toggleSidebar() {
-    this.isSidebarOpen = !this.isSidebarOpen;
-  }
 }

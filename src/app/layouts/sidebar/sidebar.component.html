@@ -1,9 +1,13 @@
-<div style="min-height: 100vh;">
+<!-- <button (click)="toggleSidebar()" class="btn btn-primary">
+    Toggle Sidebar
+</button> -->
+<!-- <div style="min-height: 100vh;" #sidebar class="sidebar"> -->
+<div style="min-height: 100%;">
     <div class="bg-primary text-light">
         <div class="d-flex justify-content-center align-items-center">
             <img src="../../../assets/images/logo.svg" class="bg-light  text-center rounded rounded-1 mb-5 mt-3" alt="">
         </div>
-        <ngx-simplebar class="">
+        <ngx-simplebar [class.open]="isSidebarOpen">
             <div *ngFor="let item of menu" class="text-center mb-4">
                 <div><i class="{{item.icon}} bg-secondary rounded rounded-1 p-1 mb-1"></i></div>
                 <p class="fs-10px ">{{item.name}}</p>
