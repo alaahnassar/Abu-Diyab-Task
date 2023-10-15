@@ -1,16 +1,15 @@
-<div>
-    <app-topbar>
-    </app-topbar>
-
-    <app-sidebar></app-sidebar>
-
-    <div class="main-content">
-        <div class="page-content">
-            <!-- content -->
-            <router-outlet>
-                <h1 class="text-primary">hello</h1>
+<div class="d-flex col-12 overflow-x-hidden" style="min-height: 100vh;">
+    <div class="col-md-1 col-auto">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-md-11 col-12">
+        <div class="row ">
+            <app-topbar class="">
+            </app-topbar>
+        </div>
+        <div class="row ">
+            <router-outlet class="">
             </router-outlet>
         </div>
-
     </div>
 </div>

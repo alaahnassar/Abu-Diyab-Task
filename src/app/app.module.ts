@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TopbarComponent } from './layouts/topbar/topbar.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
 import { VerticalComponent } from './layouts/vertical/vertical.component';
+import { SimplebarAngularModule } from 'simplebar-angular';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { VerticalComponent } from './layouts/vertical/vertical.component';
     SidebarComponent,
     VerticalComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, SimplebarAngularModule],
   providers: [],
   bootstrap: [AppComponent],
 })
