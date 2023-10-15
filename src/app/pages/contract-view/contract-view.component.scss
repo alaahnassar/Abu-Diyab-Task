@@ -1,0 +1,21 @@
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+    background-color: #F8F8F8;
+    color: #3D5653;
+    border: 1px solid #3D5653;
+    border-radius: 8px 0px 0px 0px;
+}
+
+.nav-tabs .nav-link {
+    background-color: #3D5653;
+    color: #F8F8F8;
+    border: 1px solid #3D5653;
+    border-radius: 0px 0px 0px 0px;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+    isolation: isolate;
+    border: 1px solid #3D5653;
+    border-radius: 8px 0px 0px 0px;
+}
