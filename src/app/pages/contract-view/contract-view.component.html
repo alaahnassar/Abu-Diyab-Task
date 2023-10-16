@@ -25,38 +25,162 @@
 
 
     <!-- nav -->
-    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-        <li [ngbNavItem]="1">
-            <button ngbNavLink>عقد الإيجار</button>
-            <ng-template ngbNavContent>
+    <div class="mb-3">
+        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs p-0 border-0 ">
+            <li [ngbNavItem]="1">
+                <button ngbNavLink>عقد الإيجار</button>
+                <ng-template ngbNavContent>
 
-            </ng-template>
-        </li>
-        <li [ngbNavItem]="2">
-            <button ngbNavLink>الدفعات</button>
-            <ng-template ngbNavContent>
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="2">
+                <button ngbNavLink>الدفعات</button>
+                <ng-template ngbNavContent>
 
-            </ng-template>
-        </li>
-        <li [ngbNavItem]="3">
-            <button ngbNavLink>تكاليف إضافية</button>
-            <ng-template ngbNavContent>
+                    <!-- buttons -->
+                    <div class="bg-white p-3 row justify-content-end mb-3 mx-0 rounded rounded-1">
+                        <button class="col-auto btn btn-secondary text-white mx-1">
+                            <i class="fa-solid fa-align-right"></i>
+                            إغلاق عقد
+                        </button>
+                        <button class="col-auto btn btn-outline-success bg-white  mx-1">
+                            <i class="fa-solid fa-print"></i>
+                            طباعة عقد الإيجار
+                        </button>
+                        <button class="col-auto btn btn-outline-secondary mx-1">
+                            <i class="fa-solid fa-pen"></i>
+                            تعديل
+                        </button>
+                        <button class="col-auto btn btn-outline-secondary mx-1">
+                            <i class="fa-solid fa-right-left"></i>
+                            مطالبة
+                        </button>
+                        <button class="col-auto btn btn-outline-secondary mx-1">
+                            <i class="fa-solid fa-gavel"></i>
+                            مطالبة بالتعقيب
+                        </button>
+                    </div>
 
-            </ng-template>
-        </li>
-        <li [ngbNavItem]="4">
-            <button ngbNavLink>خصومات</button>
-            <ng-template ngbNavContent>
+                    <!-- content -->
 
-            </ng-template>
-        </li>
-        <li [ngbNavItem]="5">
-            <button ngbNavLink>الفواتير الصادرة</button>
-            <ng-template ngbNavContent>
+                    <div class="row justify-content-between mx-0">
+                        <!-- table -->
+                        <div class="col-md-9 col-12">
+                            <div class="w-100">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="table-primary text-white fw-light text-center ">
+                                            <tr>
+                                                <th scope="col">تاريخ لإضافة</th>
+                                                <th scope="col">نوع الدفعة</th>
+                                                <th scope="col">القيمة</th>
+                                                <th scope="col">نوع السداد</th>
+                                                <th scope="col">الموظف</th>
+                                                <th scope="col"></th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of data">
+                                                <div ngbAccordion>
+                                                    <div ngbAccordionItem>
+                                                        <h2 ngbAccordionHeader>
+                                                            <button ngbAccordionButton>
+                                                                <td>{{ item.date }}</td>
+                                                                <td>{{ item.type }}</td>
+                                                                <td>{{ item.value }}</td>
+                                                                <td>{{ item.paidType }}</td>
+                                                                <td>{{ item.employee }}</td>
+                                                            </button>
+                                                        </h2>
+                                                        <div ngbAccordionCollapse>
+                                                            <div ngbAccordionBody>
+                                                                <!-- Content for the first item -->
+                                                                <ng-template>
+                                                                    Content for the expanded row.
+                                                                    <!-- You can put additional details here -->
+                                                                </ng-template>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-            </ng-template>
-        </li>
-    </ul>
 
-    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- left details -->
+                        <div class="col-md-3 col-12">
+                            <div class="w-100">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="3">
+                <button ngbNavLink>تكاليف إضافية</button>
+                <ng-template ngbNavContent>
+
+                    <!-- accordion-table.component.html -->
+                    <div class="accordion" id="accordionExample">
+                        <div *ngFor="let section of accordionData; let i = index" class="card">
+                            <div class="card-header" id="heading{{i}}">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        [attr.data-target]="'#collapse' + i" aria-expanded="true"
+                                        [attr.aria-controls]="'collapse' + i">
+                                        {{ section.sectionTitle }}
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div [id]="'collapse' + i" class="collapse" [attr.aria-labelledby]="'heading' + i"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of section.sectionContent">
+                                                <td>{{ item.name }}</td>
+                                                <td>{{ item.description }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="4">
+                <button ngbNavLink>خصومات</button>
+                <ng-template ngbNavContent>
+
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="5">
+                <button ngbNavLink>الفواتير الصادرة</button>
+                <ng-template ngbNavContent>
+
+                </ng-template>
+            </li>
+        </ul>
+
+        <div [ngbNavOutlet]="nav" class=" bg-light border border-top-0 border-1 border-gray-200"></div>
+    </div>
+
+
+
 </div>

@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { ContractViewComponent } from './contract-view/contract-view.component';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [ContractViewComponent],
-  imports: [CommonModule, PagesRoutingModule, NgbNavModule],
+  imports: [CommonModule, PagesRoutingModule, NgbNavModule, NgbAccordionModule],
 })
 export class PagesModule {}
