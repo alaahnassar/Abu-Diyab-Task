@@ -67,7 +67,7 @@
                         <!-- table -->
                         <div class="col-md-9 col-12">
                             <div class="w-100">
-                                <div class="table-responsive">
+                                <div class="table-responsive mb-3">
                                     <table class="table">
                                         <thead class="table-primary text-white fw-light text-center ">
                                             <tr>
@@ -106,8 +106,6 @@
                                                     <td [attr.colspan]="7">
                                                         <div #collapse="ngbCollapse" [attr.id]="'collapseExample' + i"
                                                             [ngbCollapse]="item.isCollapsed">
-
-
                                                             <div class="card bg-white border-0">
                                                                 <div class="card-body ">
                                                                     <form [formGroup]="forms[i]">
@@ -213,6 +211,61 @@
                                             </button>
                                         </div>
                                     </div>
+                                    <div class="row justify-content-start align-items-center mx-0 bg-white  p-3">
+                                        <div class="col-md-auto mb-3 col-12">
+                                            <div class="form-group">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <label for="total">اجمالي
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <input type="text" id="total"
+                                                            class="form-control bg-white text-success"
+                                                            value="570 س.ر" />
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-auto mb-3 col-12">
+                                            <div class="form-group">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <label for="total">المتبقي
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <input type="text" id="total"
+                                                            class="form-control bg-white  text-cyan" value="300 س.ر" />
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- employee info -->
+                                <div class="row bg-white mx-0 p-3 mb-3">
+                                    <h4 class="fs-20px fw-bold mb-3">بيانات الموظف</h4>
+                                    <h6 class="mb-4 text-secondary ">بيانات موظف الفتح</h6>
+                                    <div class="row">
+                                        <div class="col-md-6 col-10">
+                                            <div class="form-group mb-3">
+                                                <label class="mb-1" for="">رقم الموظف</label>
+                                                <input type="text" id="" class="form-control bg-light"
+                                                    value="10144001321563" />
+                                            </div>
+                                            <div class="form-group mb-3 ">
+                                                <label class="mb-1" for=""> إسم الموظف
+                                                </label>
+                                                <input type="text" id="" class="form-control bg-light"
+                                                    value="محمد علي عمران جلالي" />
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -229,51 +282,16 @@
             <li [ngbNavItem]="3">
                 <button ngbNavLink>تكاليف إضافية</button>
                 <ng-template ngbNavContent>
-
-                    <table class="table table-hover">
-                        <thead>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </thead>
-
-                        <tbody>
-                            <tr data-toggle="collapse" data-target="#accordion"
-                                class="clickable collapse-row collapsed">
-                                <td>Some Stuff</td>
-                                <td>Some more stuff</td>
-                                <td>And some more</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <div id="accordion" class="collapse">Hidden by default</div>
-                                </td>
-                            </tr>
-                            <tr data-toggle="collapse" data-target="#accordion2" class="clickable">
-                                <td>Some Stuff</td>
-                                <td>Some more stuff</td>
-                                <td>And some more</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <div id="accordion2" class="collapse">Hidden by default</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
                 </ng-template>
             </li>
             <li [ngbNavItem]="4">
                 <button ngbNavLink>خصومات</button>
                 <ng-template ngbNavContent>
-
                 </ng-template>
             </li>
             <li [ngbNavItem]="5">
                 <button ngbNavLink>الفواتير الصادرة</button>
                 <ng-template ngbNavContent>
-
                 </ng-template>
             </li>
         </ul>
