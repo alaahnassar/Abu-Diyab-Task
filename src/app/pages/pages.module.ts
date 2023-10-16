@@ -8,6 +8,7 @@ import {
   NgbCollapseModule,
   NgbNavModule,
 } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ContractViewComponent],
@@ -17,6 +18,7 @@ import {
     NgbNavModule,
     NgbAccordionModule,
     NgbCollapseModule,
+    ReactiveFormsModule,
   ],
 })
 export class PagesModule {}

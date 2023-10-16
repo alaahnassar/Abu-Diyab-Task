@@ -77,45 +77,142 @@
                                                 <th scope="col">نوع السداد</th>
                                                 <th scope="col">الموظف</th>
                                                 <th scope="col"></th>
-                                                <!-- <th scope="col"></th> -->
+                                                <th scope="col"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <ng-container *ngFor="let item of data">
-                                                <tr class="text-center" href="" (click)="collapse.toggle()"
-                                                    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-
-                                                    <td colspan="1">{{ item.date }}</td>
-                                                    <td colspan="1">{{ item.type }}</td>
-                                                    <td colspan="1">{{ item.value }}</td>
-                                                    <td colspan="1">{{ item.paidType }}</td>
-                                                    <td colspan="1">{{ item.employee }}</td>
-                                                    <td colspan="1">
-                                                        <button type="button" class="btn btn-outline-primary">
-                                                            <i class="fa-solid fa-print"></i>
-                                                        </button>
+                                            <ng-container *ngFor="let item of data; let i = index">
+                                                <tr class="text-center table-white border-bottom border-0"
+                                                    (click)="item.isCollapsed = !item.isCollapsed"
+                                                    [ngClass]="{'disabled-row': !item.isCollapsed}">
+                                                    <td>{{ item.date }}</td>
+                                                    <td>{{ item.type }}</td>
+                                                    <td class="text-secondary text-bolder">{{ item.value }}ر.س</td>
+                                                    <td>{{ item.paidType }}</td>
+                                                    <td>{{ item.employee }}</td>
+                                                    <td class="row">
+                                                        <div
+                                                            class="col-auto border border-1 border-secondary rounded rounded-1 ">
+                                                            <i class="fa-solid fa-print mx-1"></i>
+                                                            <i class="fa-solid fa-angle-down mx-1"
+                                                                [class.fa-angle-up]="!item.isCollapsed"></i>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa-solid fa-chevron-left"></i>
                                                     </td>
                                                 </tr>
-                                                <tr colspan="6">
-                                                    <div class="row">
-                                                        <table class="table">
+                                                <tr>
+                                                    <td [attr.colspan]="7">
+                                                        <div #collapse="ngbCollapse" [attr.id]="'collapseExample' + i"
+                                                            [ngbCollapse]="item.isCollapsed">
 
-                                                            <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
-                                                                <div class="card">
-                                                                    <div class="card-body">You can collapse this card by
-                                                                        clicking
-                                                                        one Toggle button</div>
+
+                                                            <div class="card bg-white border-0">
+                                                                <div class="card-body ">
+                                                                    <form [formGroup]="forms[i]">
+                                                                        <div class="row justify-content-between">
+                                                                            <div class="col-md-5">
+                                                                                <div class="form-group">
+                                                                                    <label for="date">تاريخ
+                                                                                        الإضافة</label>
+                                                                                    <input type="text" id="date"
+                                                                                        class="form-control bg-light"
+                                                                                        formControlName="date" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="type">نوع الدفعة</label>
+                                                                                    <input type="text" id="type"
+                                                                                        class="form-control bg-light"
+                                                                                        formControlName="type" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="description">وصف السداد
+                                                                                    </label>
+                                                                                    <input type="text" id="description"
+                                                                                        class="form-control bg-light"
+                                                                                        formControlName="description" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="paidType">نوع
+                                                                                        السداد</label>
+                                                                                    <input type="text" id="paidType"
+                                                                                        class="form-control bg-light"
+                                                                                        formControlName="paidType" />
+                                                                                </div>
+
+                                                                                <div class="form-group">
+                                                                                    <label for="value">القيمة </label>
+                                                                                    <input type="text" id="value"
+                                                                                        class="form-control bg-light text-secondary"
+                                                                                        formControlName="value" />
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-5">
+
+                                                                                <div class="form-group">
+                                                                                    <label for="branch">فرع استلام
+                                                                                        الدفعه</label>
+                                                                                    <input type="text" id="branch"
+                                                                                        class="form-control"
+                                                                                        formControlName="branch" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="processType">نوع
+                                                                                        العملية</label>
+                                                                                    <input type="text" id="processType"
+                                                                                        class="form-control"
+                                                                                        formControlName="processType" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        for="machine">الماكينه</label>
+                                                                                    <input type="text" id="machine"
+                                                                                        class="form-control"
+                                                                                        formControlName="machine" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="num1">رقم مرجع
+                                                                                        العملية</label>
+                                                                                    <input type="text" id="num1"
+                                                                                        class="form-control"
+                                                                                        formControlName="num1" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="num2">رقم سند
+                                                                                        القبض</label>
+                                                                                    <input type="text" id="num2"
+                                                                                        class="form-control"
+                                                                                        formControlName="num2" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="employee">الموظف</label>
+                                                                                    <input type="text" id="employee"
+                                                                                        class="form-control"
+                                                                                        formControlName="employee" />
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </form>
                                                                 </div>
                                                             </div>
-                                                        </table>
-                                                    </div>
+
+                                                        </div>
+                                                    </td>
                                                 </tr>
-
                                             </ng-container>
-
-
                                         </tbody>
                                     </table>
+                                    <div class="row justify-content-end mx-0">
+                                        <div class="col-auto ">
+                                            <button class="btn btn-secondary text-white" (click)="addNewPayment()">
+                                                <i class="fa-solid fa-plus"></i>
+                                                إضافة دفعة جديدة
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
