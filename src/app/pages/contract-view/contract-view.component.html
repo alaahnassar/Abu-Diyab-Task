@@ -77,36 +77,43 @@
                                                 <th scope="col">نوع السداد</th>
                                                 <th scope="col">الموظف</th>
                                                 <th scope="col"></th>
-                                                <th scope="col"></th>
+                                                <!-- <th scope="col"></th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let item of data">
-                                                <div ngbAccordion>
-                                                    <div ngbAccordionItem>
-                                                        <h2 ngbAccordionHeader>
-                                                            <button ngbAccordionButton>
-                                                                <td>{{ item.date }}</td>
-                                                                <td>{{ item.type }}</td>
-                                                                <td>{{ item.value }}</td>
-                                                                <td>{{ item.paidType }}</td>
-                                                                <td>{{ item.employee }}</td>
-                                                            </button>
-                                                        </h2>
-                                                        <div ngbAccordionCollapse>
-                                                            <div ngbAccordionBody>
-                                                                <!-- Content for the first item -->
-                                                                <ng-template>
-                                                                    Content for the expanded row.
-                                                                    <!-- You can put additional details here -->
-                                                                </ng-template>
+                                            <ng-container *ngFor="let item of data">
+                                                <tr class="text-center" href="" (click)="collapse.toggle()"
+                                                    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+
+                                                    <td colspan="1">{{ item.date }}</td>
+                                                    <td colspan="1">{{ item.type }}</td>
+                                                    <td colspan="1">{{ item.value }}</td>
+                                                    <td colspan="1">{{ item.paidType }}</td>
+                                                    <td colspan="1">{{ item.employee }}</td>
+                                                    <td colspan="1">
+                                                        <button type="button" class="btn btn-outline-primary">
+                                                            <i class="fa-solid fa-print"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr colspan="6">
+                                                    <div class="row">
+                                                        <table class="table">
+
+                                                            <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                                                                <div class="card">
+                                                                    <div class="card-body">You can collapse this card by
+                                                                        clicking
+                                                                        one Toggle button</div>
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                        </table>
                                                     </div>
-                                                </div>
+                                                </tr>
+
+                                            </ng-container>
 
 
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -126,41 +133,37 @@
                 <button ngbNavLink>تكاليف إضافية</button>
                 <ng-template ngbNavContent>
 
-                    <!-- accordion-table.component.html -->
-                    <div class="accordion" id="accordionExample">
-                        <div *ngFor="let section of accordionData; let i = index" class="card">
-                            <div class="card-header" id="heading{{i}}">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse"
-                                        [attr.data-target]="'#collapse' + i" aria-expanded="true"
-                                        [attr.aria-controls]="'collapse' + i">
-                                        {{ section.sectionTitle }}
-                                    </button>
-                                </h2>
-                            </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </thead>
 
-                            <div [id]="'collapse' + i" class="collapse" [attr.aria-labelledby]="'heading' + i"
-                                data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Description</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor="let item of section.sectionContent">
-                                                <td>{{ item.name }}</td>
-                                                <td>{{ item.description }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                        <tbody>
+                            <tr data-toggle="collapse" data-target="#accordion"
+                                class="clickable collapse-row collapsed">
+                                <td>Some Stuff</td>
+                                <td>Some more stuff</td>
+                                <td>And some more</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div id="accordion" class="collapse">Hidden by default</div>
+                                </td>
+                            </tr>
+                            <tr data-toggle="collapse" data-target="#accordion2" class="clickable">
+                                <td>Some Stuff</td>
+                                <td>Some more stuff</td>
+                                <td>And some more</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div id="accordion2" class="collapse">Hidden by default</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                 </ng-template>
             </li>

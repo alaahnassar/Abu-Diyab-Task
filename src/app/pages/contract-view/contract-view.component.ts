@@ -7,13 +7,25 @@ import { Component } from '@angular/core';
 })
 export class ContractViewComponent {
   active = 2;
+  isCollapsed = true;
   data = [
     {
+      id: 1,
       date: '17-12-2022',
       type: 'تحت الحساب',
       value: '500',
       paidType: 'شيكات',
       employee: '1012',
+      isCollapsed: true,
+    },
+    {
+      id: 2,
+      date: '17-12-2022',
+      type: 'تحت الحساب',
+      value: '500',
+      paidType: 'شيكات',
+      employee: '1012',
+      isCollapsed: true,
     },
   ];
 
