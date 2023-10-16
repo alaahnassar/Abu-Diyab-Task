@@ -40,8 +40,38 @@ export class ContractViewComponent {
       employee: '1012',
       isCollapsed: true,
     },
+    {
+      id: 3,
+      date: '17-12-2022',
+      type: 'تحت الحساب',
+      description: '---',
+      value: '500',
+      paidType: 'شيكات',
+      branch: 'الفرع الرئيسي',
+      processType: 'شبكة',
+      machine: '301247',
+      num1: '1479',
+      num2: '5019698',
+      employee: '1012',
+      isCollapsed: true,
+    },
+    {
+      id: 4,
+      date: '17-12-2022',
+      type: 'تحت الحساب',
+      description: '---',
+      value: '500',
+      paidType: 'شيكات',
+      branch: 'الفرع الرئيسي',
+      processType: 'شبكة',
+      machine: '301247',
+      num1: '1479',
+      num2: '5019698',
+      employee: '1012',
+      isCollapsed: true,
+    },
   ];
-  // Create an array of forms, one for each item
+
   forms: FormGroup[] = [];
 
   constructor(private fb: FormBuilder) {
@@ -81,7 +111,7 @@ export class ContractViewComponent {
       num1: '',
       num2: '',
       employee: '',
-      isCollapsed: false, // Set isCollapsed to false to open the new row
+      isCollapsed: false,
     };
 
     this.data.push(newItem);
