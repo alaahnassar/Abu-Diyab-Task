@@ -9,9 +9,10 @@ import {
   NgbNavModule,
 } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InvoiceSummaryComponent } from './invoice-summary/invoice-summary.component';
 
 @NgModule({
-  declarations: [ContractViewComponent],
+  declarations: [ContractViewComponent, InvoiceSummaryComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

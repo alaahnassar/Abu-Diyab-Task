@@ -12,7 +12,7 @@ $gray-80: #dedede;
 // $gray-80: #EAECF0;
 $gray-100: #F9FAFB;
 $gray-200: #F1F2F4;
-$gray-300: #EEEFF2;
+$gray-300: #CECECE;
 $gray-400: #CBD5E0;
 $gray-500: #A0AEC0;
 $gray-600: #98A2B3;
@@ -39,6 +39,7 @@ $theme-colors: (
   "dark": $dark,
   "black": $black,
   "gray": #9d9a9a,
+  "gray-300":$gray-300,
   "gray-80": $gray-80,
   "gray-700": $gray-700,
   "gray-600": $gray-600,

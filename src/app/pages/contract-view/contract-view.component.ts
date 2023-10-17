@@ -12,7 +12,7 @@ export class ContractViewComponent {
   generalIsCollapsed = true;
   costsIsCollapsed = true;
   invoiceIsCollapsed = true;
-  invoiceSummaryIsCollapsed = true;
+  invoiceSummaryIsCollapsed = false;
   data = [
     {
       id: 1,
