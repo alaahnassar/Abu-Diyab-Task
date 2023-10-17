@@ -9,6 +9,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class ContractViewComponent {
   active = 2;
   isCollapsed = true;
+  generalIsCollapsed = true;
+  costsIsCollapsed = true;
+  invoiceIsCollapsed = true;
+  invoiceSummaryIsCollapsed = true;
   data = [
     {
       id: 1,

@@ -272,6 +272,102 @@
                         <!-- left details -->
                         <div class="col-md-3 col-12">
                             <div class="w-100">
+                                <div class="row bg-white p-2">
+                                    <!-- general information -->
+                                    <div class="row mx-0 mb-3">
+                                        <p class="mb-0">
+                                            <button type="button" class="btn btn-light w-100"
+                                                (click)="generalCollapse.toggle()"
+                                                [attr.aria-expanded]="!generalIsCollapsed"
+                                                aria-controls="generalCollapse">
+                                                <div class="row justify-content-between align-items-center mx-0 px-0">
+                                                    <div class="col">
+                                                        <h6 class="float-end">بيانات عامة</h6>
+                                                    </div>
+                                                    <div class="col">
+                                                        <i class="fa-solid fa-chevron-left float-start"></i>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </p>
+                                        <div class="" #generalCollapse="ngbCollapse"
+                                            [(ngbCollapse)]="generalIsCollapsed">
+                                            <div class="card border-0 bg-white">
+                                                <div class="card-body">بيانات عامة</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- costs -->
+                                    <div class="row mx-0 mb-3">
+                                        <p class="mb-0">
+                                            <button type="button" class="btn btn-light w-100"
+                                                (click)="costsCollapse.toggle()"
+                                                [attr.aria-expanded]="!costsIsCollapsed" aria-controls="costsCollapse">
+                                                <div class="row justify-content-between align-items-center mx-0 px-0">
+                                                    <div class="col">
+                                                        <h6 class="float-end">تكاليف</h6>
+                                                    </div>
+                                                    <div class="col">
+                                                        <i class="fa-solid fa-chevron-left float-start"></i>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </p>
+                                        <div class="" #costsCollapse="ngbCollapse" [(ngbCollapse)]="costsIsCollapsed">
+                                            <div class="card border-0 bg-white">
+                                                <div class="card-body">تكاليف</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- invoice -->
+                                    <div class="row mx-0 mb-3">
+                                        <p class="mb-0">
+                                            <button type="button" class="btn btn-light w-100"
+                                                (click)="invoiceCollapse.toggle()"
+                                                [attr.aria-expanded]="!invoiceIsCollapsed"
+                                                aria-controls="invoiceCollapse">
+                                                <div class="row justify-content-between align-items-center mx-0 px-0">
+                                                    <div class="col">
+                                                        <h6 class="float-end">فاتورة</h6>
+                                                    </div>
+                                                    <div class="col">
+                                                        <i class="fa-solid fa-chevron-left float-start"></i>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </p>
+                                        <div class="" #invoiceCollapse="ngbCollapse"
+                                            [(ngbCollapse)]="invoiceIsCollapsed">
+                                            <div class="card border-0 bg-white">
+                                                <div class="card-body">فاتورة</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- invoice summary -->
+                                    <div class="row mx-0 mb-3">
+                                        <p class="mb-0">
+                                            <button type="button" class="btn btn-light w-100"
+                                                (click)="invoiceSummaryCollapse.toggle()"
+                                                [attr.aria-expanded]="!invoiceSummaryIsCollapsed"
+                                                aria-controls="invoiceSummaryCollapse">
+                                                <div class="row justify-content-between align-items-center mx-0 px-0">
+                                                    <div class="col">
+                                                        <h6 class="float-end">ملخص الفاتورة</h6>
+                                                    </div>
+                                                    <div class="col">
+                                                        <i class="fa-solid fa-chevron-left float-start"></i>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </p>
+                                        <div class="" #invoiceSummaryCollapse="ngbCollapse"
+                                            [(ngbCollapse)]="invoiceSummaryIsCollapsed">
+                                            <div class="card border-0 bg-white">
+                                                <div class="card-body">فاتورة</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
